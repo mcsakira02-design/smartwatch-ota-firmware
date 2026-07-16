@@ -1,0 +1,1 @@
+GEN_CSRCS += lv_font_alimama_12.c

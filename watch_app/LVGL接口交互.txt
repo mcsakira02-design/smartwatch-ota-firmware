@@ -1,0 +1,24 @@
+模块,	接口名称,	方向,	发送方,	接收方,	数据类型,	参数,	返回值,	范围,	频率,	优先级,	描述,	状态
+显示,	display_init,	LVGL→驱动,	应用层,	user_display,	void,	width, height, color_depth,	bool,	240x280, 16bit,	启动时,	高,	初始化显示器,	待实现
+显示,	display_flush,	LVGL→驱动,	应用层,	user_display,	void,	x1, y1, x2, y2, color_map,	void,	0-239坐标,	>100Hz,	高,	刷新显示缓冲区,	已实现
+显示,	display_set_backlight,	LVGL→驱动,	应用层,	user_display,	void,	brightness,	void,	0-1000,	<1Hz,	中,	设置背光亮度,	已实现
+触摸,	touchpad_init,	LVGL→驱动,	应用层,	user_touchpad	void,	calibration_data,	bool,	校准参数,	启动时,	高,	初始化触摸屏,	待实现
+触摸,	touchpad_read,	驱动→LVGL,	user_touchpad	应用层,	bool,	*x, *y, *pressed,	bool,	0-239坐标,	100Hz,	高,	读取触摸状态,	已实现
+触摸,	touchpad_calibrate,	LVGL→驱动,	应用层,	user_touchpad	bool,	cal_points[],	bool,	校准点数组,	手动触发,	低,	执行触摸校准,	已实现
+传感器,	sensor_temp_read,	驱动→LVGL,	user_temp	应用层,	float,	void,	float,	-40~85°C,	0.1Hz,	低,	读取温度,	待实现
+传感器,	sensor_humidity_read,	驱动→LVGL,	user_temp	应用层,	float,	void,	float,	0-100%,	0.1Hz,	低,	读取湿度,	待实现
+传感器,	sensor_heartrate_read,	驱动→LVGL,	user_heartrate	应用层,	uint16_t,	void,	uint16_t,	40-200BPM,	1Hz,	中,	读取心率,	待实现
+运动,	motion_get_steps,	驱动→LVGL,	user_motion	应用层,	uint32_t,	void,	uint32_t,	0-999999,	1Hz,	中,	获取步数,	待实现
+运动,	motion_get_accel,	驱动→LVGL,	user_motion	应用层,	void,	*x, *y, *z,	void,	±16g,	10Hz,	中,	获取加速度,	待实现
+运动,	motion_get_gyro,	驱动→LVGL,	user_motion	应用层,	void,	*x, *y, *z,	void,	±2000°/s,	10Hz,	中,	获取角速度,	待实现
+存储,	config_load,	驱动→LVGL,	user_flashmanage	应用层,	bool,	*config_struct,	bool,	配置结构体,	启动时,	低,	加载配置,	待实现
+存储,	config_save,	LVGL→驱动,	应用层,	user_flashmanage	bool,	config_struct,	bool,	配置结构体,	变更时,	低,	保存配置,	待实现
+存储,	flash_read,	驱动→LVGL,	user_flashmanage	应用层,	bool,	addr, *data, len,	bool,	0-3MB地址,	<0.1Hz,	低,	读取Flash,	待实现
+存储,	flash_write,	LVGL→驱动,	应用层,	user_flashmanage	bool,	addr, *data, len,	bool,	0-3MB地址,	<0.1Hz,	低,	写入Flash,	待实现
+系统,	system_get_tick,	驱动→LVGL,	user_tick	应用层,	uint32_t,	void,	uint32_t,	0-4294967295ms,	>1000Hz,	高,	获取系统时钟,	已实现
+系统,	rtc_get_time,	驱动→LVGL,	RTC,	应用层,	void,	*hour, *min, *sec,	void,	0-23h, 0-59m/s,	1Hz,	中,	获取时间,	待实现
+系统,	rtc_set_time,	LVGL→驱动,	应用层,	RTC,	bool,	hour, min, sec,	bool,	0-23h, 0-59m/s,	手动,	低,	设置时间,	待实现
+电源,	battery_get_level,	驱动→LVGL,	user_powermanage	应用层,	uint8_t,	void,	uint8_t,	0-100%,	0.1Hz,	中,	获取电量,	待实现
+电源,	power_get_status,	驱动→LVGL,	user_powermanage	应用层,	enum,	void,	power_status_t,	充电/放电/满电,	0.1Hz,	中,	获取电源状态,	待实现
+电源,	power_set_mode,	LVGL→驱动,	应用层,	user_powermanage	void,	power_mode,	void,	正常/睡眠/深睡,	<0.1Hz,	高,	设置电源模式,	待实现
+通信,	bt_get_status,	驱动→LVGL,	user_ble	应用层,	enum,	void,	bt_status_t,	断开/配对/已连接,	1Hz,	中,	获取蓝牙状态,	待实现

@@ -1,0 +1,1 @@
+GEN_CSRCS += _biaopan1_alpha_240x240.c _time_alpha_40x5.c _fen_alpha_70x5.c _miao_alpha_70x5.c

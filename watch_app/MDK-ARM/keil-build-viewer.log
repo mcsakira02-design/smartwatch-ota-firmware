@@ -1,0 +1,30 @@
+
+=================================================== keil-build-viewer v1.5b ==================================================
+ 
+[Search keil project] 1 item(s)
+	E:\01_LX\ec_s100_watch\04_Software\test1\project\project\MDK-ARM\project.uvprojx
+
+[User input] 
+[Current folder] E:\01_LX\ec_s100_watch\04_Software\test1\project\project\MDK-ARM
+[Encoding] 936
+[Keil project path] E:\01_LX\ec_s100_watch\04_Software\test1\project\project\MDK-ARM\project.uvprojx
+[Keil project name] project.uvprojx
+[Is keil v4] 0
+[target name] project
+[final target name] project
+
+[Device] STM32F411CEUx
+[Target name] 
+[Output name] project
+[Output path] project\
+[Listing path] 
+[Is has pack] 1
+[Is enbale LTO] 0
+[Is has user library] 0
+[Is custom scatter file] 1
+
+[ERROR] listing path is empty
+[ERROR] Please check: E:\01_LX\ec_s100_watch\04_Software\test1\project\project\MDK-ARM\project.uvprojx
+=============================================================================================================================
+
+run time: 0.001 s

@@ -1,0 +1,227 @@
+<mxfile host="Electron" modified="2025-09-20T17:17:27.696Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.13 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="B1t1vG1N-v8S3NOWYRy7" version="24.4.13" type="device">
+  <diagram name="OTA升级流程图" id="ota-flowchart">
+    <mxGraphModel dx="2093" dy="1045" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="start" value="系统上电启动" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="500" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="init" value="硬件初始化&lt;br&gt;- 时钟配置&lt;br&gt;- GPIO初始化&lt;br&gt;- UART初始化&lt;br&gt;- 日志系统初始化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="460" y="140" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="readState" value="读取App运行状态&lt;br&gt;Boot_Manager_State()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="480" y="260" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="stateCheck" value="App状态检查" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="500" y="360" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="appValid" value="APP_Valid" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="200" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="waitUpdate" value="APP_WAIT_UPDATE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="380" y="480" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="checkNewApp" value="APP_Check_NewApp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="580" y="480" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="areaAToB" value="APP_AreaAToAreaB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="780" y="480" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jumpToApp" value="验证App有效性&lt;br&gt;BootManager_JumpToApp()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="180" y="580" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="appUpdate" value="从外部Flash升级&lt;br&gt;Boot_Manager_AppWaitUpdate()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="360" y="580" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rollback" value="回退到备份区&lt;br&gt;Boot_Manager_Rollback_Backup_Area()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="560" y="580" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="backup" value="A区备份到B区&lt;br&gt;Boot_Manager_AareaToBarea()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="760" y="580" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="upgradeMode" value="进入升级模式&lt;br&gt;BootManager_BootDownload()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="480" y="700" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aesInit" value="AES系统初始化&lt;br&gt;- Keros芯片初始化&lt;br&gt;- 读取密钥和IV" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="460" y="800" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ymodemReceive" value="Ymodem协议接收&lt;br&gt;- 握手建立连接&lt;br&gt;- 接收文件信息&lt;br&gt;- 循环接收数据包&lt;br&gt;- CRC校验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="200" y="920" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="flashWrite" value="写入外部Flash&lt;br&gt;W25Q64_WriteData()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="420" y="940" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="decryption" value="数据解密处理&lt;br&gt;BootManager_BackToApp()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="620" y="940" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="decryptDetail" value="解密详细流程&lt;br&gt;1. 读取加密数据(16字节)&lt;br&gt;2. AES-256 CBC解密&lt;br&gt;3. 写入内部Flash(4字节×4)&lt;br&gt;4. 循环处理所有数据块" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="580" y="1040" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="appVerify" value="App验证&lt;br&gt;CheckAppValid()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="480" y="1180" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="verifyResult" value="验证结果" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="500" y="1280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="setAppState" value="设置App状态&lt;br&gt;SetAppFlagValue()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="320" y="1400" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="upgradeFail" value="升级失败处理&lt;br&gt;- 清除状态标志&lt;br&gt;- 尝试从备份区恢复" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="680" y="1400" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="systemReset" value="系统重启&lt;br&gt;NVIC_SystemReset()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="480" y="1520" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="appRun" value="App正常运行" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="200" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" parent="1" source="start" target="init" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" parent="1" source="init" target="readState" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" parent="1" source="readState" target="stateCheck" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" parent="1" source="stateCheck" target="appValid" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label1" value="APP_Valid" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge4" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" parent="1" source="stateCheck" target="waitUpdate" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label2" value="WAIT_UPDATE" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge5" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" parent="1" source="stateCheck" target="checkNewApp" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label3" value="Check_NewApp" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge6" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" parent="1" source="stateCheck" target="areaAToB" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label4" value="AreaAToAreaB" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge7" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge8" parent="1" source="appValid" target="jumpToApp" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9" parent="1" source="waitUpdate" target="appUpdate" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge10" parent="1" source="checkNewApp" target="rollback" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge11" parent="1" source="areaAToB" target="backup" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge12" parent="1" source="jumpToApp" target="appRun" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge13" parent="1" source="stateCheck" target="upgradeMode" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="500" as="sourcePoint" />
+            <mxPoint x="560" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label5" value="其他状态/无效" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge13" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge14" parent="1" source="upgradeMode" target="aesInit" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge15" parent="1" source="aesInit" target="ymodemReceive" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="880" as="sourcePoint" />
+            <mxPoint x="380" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge16" parent="1" source="ymodemReceive" target="flashWrite" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge17" parent="1" source="flashWrite" target="decryption" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge18" parent="1" source="decryption" target="decryptDetail" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge19" parent="1" source="decryptDetail" target="appVerify" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="1140" as="sourcePoint" />
+            <mxPoint x="560" y="1180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge20" parent="1" source="appVerify" target="verifyResult" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge21" parent="1" source="verifyResult" target="setAppState" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label6" value="验证成功" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge21" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge22" parent="1" source="verifyResult" target="upgradeFail" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label7" value="验证失败" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge22" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge23" parent="1" source="setAppState" target="systemReset" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge24" parent="1" source="upgradeFail" target="systemReset" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge25" parent="1" source="appUpdate" target="decryption" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="640" as="sourcePoint" />
+            <mxPoint x="700" y="940" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="450" y="680" />
+              <mxPoint x="700" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge26" parent="1" source="rollback" target="systemReset" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="680" />
+              <mxPoint x="950" y="680" />
+              <mxPoint x="950" y="1550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge27" parent="1" source="backup" target="systemReset" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="680" />
+              <mxPoint x="980" y="680" />
+              <mxPoint x="980" y="1550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge28" parent="1" source="systemReset" target="start" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="1600" />
+              <mxPoint x="1100" y="1600" />
+              <mxPoint x="1100" y="70" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label8" value="系统重启" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge28" vertex="1" connectable="0">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="图例说明：&lt;br&gt;🟢 正常流程  🟡 升级流程  🟠 异常处理  🔵 数据处理  ⚪ 决策点" style="text;html=1;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="300" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

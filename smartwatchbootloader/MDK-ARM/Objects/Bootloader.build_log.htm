@@ -1,0 +1,100 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Simon Administrator, lixin, LIC=VGXG8-3X1P6-HLNCL-0MZTY-WGZ9G-ES776
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.38.0.0
+Toolchain Path:  E:\ProgramFile\MDK\Core\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      Segger\JL2CM3.dll V2.99.42.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+E:\01_LX\06_ec_s100_watch\ec_s100_watch1\03_Firmware\00_Bootloader\MDK-ARM\Bootloader.uvprojx
+Project File Date:  10/09/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'E:\ProgramFile\MDK\Core\ARM\ARMCC\Bin'
+Build target 'STM32F4x1'
+After Build - User command #1: .\keil-build-viewer.exe
+=================================================== keil-build-viewer v1.5b ==================================================
+ 
+[Bootloader.uvprojx]  [STM32F4x1]  [STM32F411CEUx]
+ 
+-------------------------------------------------------------------------------------------------------------------------------
+                                 FILE(s)                                |         RAM (byte)       |       FLASH (byte)       |
+-------------------------------------------------------------------------------------------------------------------------------
+..\Middlewares\AES\AES.c():                                             |         256              |        1566              |
+..\Tasks\Boot_Manager\Boot_Manager.c():                                 |        8288              |        3461              |
+..\Middlewares\Ymodem\common.c():                                       |           0              |         312              |
+..\Tasks\Debug\Debug.c():                                               |           0              |          44              |
+..\Middlewares\easylogger\src\elog.c():                                 |         384              |        1459              |
+..\Middlewares\easylogger\port\elog_port.c():                           |           0              |          32              |
+..\Middlewares\easylogger\src\elog_utils.c():                           |           0              |          40              |
+..\Core\Src\Flash.c():                                                  |           0              |         386              |
+..\Core\Src\Gpio.c():                                                   |           0              |         144              |
+..\Core\Src\Iwdg.c():                                                   |           0              |          36              |
+..\Bsp\Keros\keros_aes_manager.c():                                     |          49              |        1105              |
+..\Bsp\Keros\keros_i2c_interface.c():                                   |           0              |         870              |
+..\Bsp\Keros\keros_interface.c():                                       |           0              |         132              |
+..\Core\Src\main.c():                                                   |          20              |         332              |
+..\Drivers\STM32F4xx_StdPeriph_Driver\src\misc.c():                     |           0              |          20              |
+..\Middlewares\Rtt\SEGGER_RTT.c():                                      |        1208              |         587              |
+..\Middlewares\Rtt\SEGGER_RTT_printf.c():                               |           0              |        1134              |
+..\Core\Src\Spi.c():                                                    |           0              |         640              |
+.\startup_stm32f411xe.s():                                              |        2560              |         472              |
+..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c():          |           0              |         390              |
+..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c():           |           0              |         250              |
+..\Core\Src\stm32f4xx_it.c():                                           |           4              |          84              |
+..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c():           |           0              |          68              |
+..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c():            |          16              |         448              |
+..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c():            |           0              |         118              |
+..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c():            |           0              |          40              |
+..\Drivers\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c():          |           0              |         270              |
+..\Core\Src\system_stm32f4xx.c():                                       |          20              |         524              |
+..\Core\Src\tim.c():                                                    |           6              |         162              |
+..\Core\Src\Usart.c():                                                  |           0              |         202              |
+..\Bsp\W25Qxx\w25qxx.c():                                               |          28              |         864              |
+..\Bsp\W25Qxx\w25qxx_Handler.c():                                       |        8260              |        1332              |
+..\Middlewares\Ymodem\ymodem.c():                                       |        1341              |         960              |
+-------------------------------------------------------------------------------------------------------------------------------
+LR_IROM1
+        RAM 1             [0x20000000 | 0x00020000 (131072)]
+                RW_IRAM1  [0x20000000]|¡ö¡õ¡õ¡õ¡õ¡õ¡õ¡õ__________________________________________| (  22.5 KB / 127.9 KB )  17.6%  
+                MYRAM     [0x2001FFF0]|¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ_____________________________________| (        4 /       15 )  26.7%  
+ 
+        FLASH 1           [0x08000000 | 0x00080000 (524288)]
+                ER_IROM1  [0x08000000]|¡ö¡ö¡ö_______________________________________________| (  30.7 KB / 512.0 KB )   6.0%  
+ 
+Maximum Stack Usage =        688 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)
+ 
+=============================================================================================================================
+After Build - User command #2: fromelf --bin --output full.bin "E:\01_LX\06_ec_s100_watch\ec_s100_watch1\03_Firmware\00_Bootloader\MDK-ARM\Objects\Bootloader.axf"
+".\Objects\Bootloader.axf" - 0 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
+                Keil.STM32F4xx_DFP.2.17.1
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  E:/ProgramFile/MDK/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
